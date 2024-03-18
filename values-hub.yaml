@@ -10,11 +10,11 @@ clusterGroup:
     - tgis-llm-demo
     - clusterops
   subscriptions:
-    # acm:
-    #   name: advanced-cluster-management
-    #   namespace: open-cluster-management
-    #   channel: release-2.9
-      #csv: advanced-cluster-management.v2.6.1
+    acm:
+      name: advanced-cluster-management
+      namespace: open-cluster-management
+      channel: release-2.9
+      csv: advanced-cluster-management.v2.6.1
   projects:
     - hub
     - config-demo
@@ -41,16 +41,16 @@ clusterGroup:
   #   - '/overrides/values-{{ $.Values.global.hubClusterDomain }}.yaml'
   #   - '/overrides/values-{{ $.Values.global.localClusterDomain }}.yaml'
   applications:
-    # acm:
-    #   name: acm
-    #   namespace: open-cluster-management
-    #   project: hub
-    #   path: common/acm
-    #   ignoreDifferences:
-    #     - group: internal.open-cluster-management.io
-    #       kind: ManagedClusterInfo
-    #       jsonPointers:
-    #         - /spec/loggingCA
+    acm:
+      name: acm
+      namespace: open-cluster-management
+      project: hub
+      path: common/acm
+      ignoreDifferences:
+        - group: internal.open-cluster-management.io
+          kind: ManagedClusterInfo
+          jsonPointers:
+            - /spec/loggingCA
     vault:
       name: vault
       namespace: vault
