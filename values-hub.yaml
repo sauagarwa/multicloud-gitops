@@ -7,8 +7,8 @@ clusterGroup:
     - golang-external-secrets
     - config-demo
     - hello-world
-    - tgis-llm-demo
     - clusterops
+    - my-doc
   subscriptions:
     acm:
       name: advanced-cluster-management
