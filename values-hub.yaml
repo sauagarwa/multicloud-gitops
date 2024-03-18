@@ -8,6 +8,7 @@ clusterGroup:
     - config-demo
     - hello-world
     - tgis-llm-demo
+    - clusterops
   subscriptions:
     # acm:
     #   name: advanced-cluster-management
@@ -76,6 +77,12 @@ clusterGroup:
       project: tgis-llm-demo
       kustomize: true
       path: charts/all/tgis-llm-demo/kustomize/overlays/dev
+    clusterops:
+      name: cluster-ops
+      namespace: clusterops
+      project: hub
+      kustomize: true
+      path: charts/all/cluster-ops/base
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule
