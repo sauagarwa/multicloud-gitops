@@ -9,14 +9,14 @@ clusterGroup:
   namespaces:
     - config-demo
     - hello-world
-    - tgis-llm-demo
+    - ai-llm-demo
     - golang-external-secrets
   subscriptions:
   projects:
     - eso
     - config-demo
     - hello-world
-    - tgis-llm-demo
+    - ai-llm-demo
   applications:
     golang-external-secrets:
       name: golang-external-secrets
@@ -33,12 +33,12 @@ clusterGroup:
       namespace: hello-world
       project: hello-world
       path: charts/all/hello-world
-    tgis-llm-demo:
-      name: tgis-llm-demo
-      namespace: tgis-llm-demo
-      project: tgis-llm-demo
+    ai-llm-demo:
+      name: ai-llm-demo
+      namespace: ai-llm-demo
+      project: ai-llm-demo
       kustomize: true
-      path: charts/all/tgis-llm-demo/kustomize/overlays/dev
+      path: charts/all/ai-llm-demo/kustomize/overlays/dev
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule

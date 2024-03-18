@@ -20,10 +20,9 @@ spec:
     repository: registry.connect.redhat.com/redislabs/redis-enterprise-operator
     versionTag: ''
   clusterCredentialSecretName: rec
-  nodes: 3
+  nodes: 1
   persistentSpec:
     enabled: true
-    storageClassName: gp3-csi
     volumeSize: 20Gi
   createServiceAccount: true
   username: demo-sg@redhat.com

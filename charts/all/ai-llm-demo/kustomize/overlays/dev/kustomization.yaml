@@ -2,18 +2,28 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 generatorOptions:
   disableNameSuffixHash: true
 kind: Kustomization
-namespace: tgis-llm-demo
+namespace: ai-llm-demo
 patchesJSON6902:
   - patch: |-
       - op: replace
         path: /spec/targetNamespaces/0
-        value: tgis-llm-demo
+        value: ai-llm-demo
     target:
       group: operators.coreos.com
       kind: OperatorGroup
       name: redis
       version: v1
+  - target:
+      group: rbac.authorization.k8s.io
+      version: v1
+      kind: ClusterRoleBinding
+      name: 'system:openshift:scc:redis-enterprise-scc-v2'
+    patch: |-
+      - op: replace
+        path: /subjects/0/namespace
+        value: ai-llm-demo
 resources:
+  - ../../base/security
   - ../../base/operators.coreos.com/operatorgroups/redis
   - ../../base/operators.coreos.com/subscriptions/redis
   - ../../base/redisenterprises

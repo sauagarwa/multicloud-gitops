@@ -5,5 +5,5 @@ metadata:
     argocd.argoproj.io/managed-by: openshift-gitops
   annotations:
     openshift.io/display-name: "Demo LLM"
-  name: tgis-llm-demo
+  name: ai-llm-demo
 spec: {}

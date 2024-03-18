@@ -25,6 +25,11 @@ spec:
         - name: cache-volume
           emptyDir:
             sizeLimit: 2Gi
+      initContainers:
+        - name: wait-for-redis
+          image: goodsmileduck/redis-cli
+          imagePullPolicy: IfNotPresent
+          args: [ 'sh', '-c', 'until redis-cli -h my-doc-headless.$(NAMESPACE).svc.cluster.local -p 10225  get hello; do echo "Sleeping a bit"; sleep 1; done; echo "ready!"; ' ]
       containers:
         - resources:
             limits:
